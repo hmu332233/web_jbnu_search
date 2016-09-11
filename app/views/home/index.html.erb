@@ -1,45 +1,129 @@
 <br/><br/><br/><br/>
 <div class="container">
 
-  <form method="GET">
-    <div class="form-group">
-      <input type="text" class="form-control" name="query" placeholder="검색">
-    </div>
-  </form>
-
-  <div class="row">
-    <div class="col-md-4">
-      <% @public.each do |post| %>
-        <%= post.title %> <br/>
-        <%= post.number %> <br/>
-        <%= post.writer %> <br/>
-        <%= post.period %> <br/>
-        <br/>
-      <% end %>
-    </div>
-
-    <div class="col-md-4">
-      <% @notice.each do |post| %>
-        <%= post.title %> <br/>
-        <%= post.number %> <br/>
-        <%= post.writer %> <br/>
-        <%= post.period %> <br/>
-        <br/>
-      <% end %>
-    </div>
-
-    <div class="col-md-4">
-      <% @recrult.each do |post| %>
-        <%= post.title %> <br/>
-        <%= post.number %> <br/>
-        <%= post.writer %> <br/>
-        <%= post.period %> <br/>
-        <br/>
-      <% end %>
-    </div>
-
+<form method="GET">
+  <div class="form-group">
+    <input type="text" class="form-control" name="query" placeholder="검색">
   </div>
+</form>
+
+<br/>
+
+<div class="row">
+  <div class="col-md-6">
+    <table class="table" style="background-color:white">
+      <thead class="bg-warning">
+        <tr>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>기간</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% @public.each_with_index do |post,i| %>
+            <% if i < 5 %>
+            <tr>
+              <td><%= post.title %></td>
+              <td><%= post.writer %></td>
+              <td><%= post.period %></td>
+            </tr>
+          <% else %>
+            <tr style="display:none;">
+              <td><%= post.title %></td>
+              <td><%= post.writer %></td>
+              <td><%= post.period %></td>
+            </tr>
+          <% end %>
+        <% end %>
+        </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <table class="table" style="background-color:white">
+      <thead class="bg-success">
+        <tr>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>기간</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recrult.each_with_index do |post,i| %>
+          <% if i < 5 %>
+            <tr>
+              <td><%= post.title %></td>
+              <td><%= post.writer %></td>
+              <td><%= post.period %></td>
+            </tr>
+          <% else %>
+            <tr style="display:none;">
+            <td><%= post.title %></td>
+            <td><%= post.writer %></td>
+            <td><%= post.period %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 
-
+<div class="row">
+  <div class="col-md-6">
+    <table class="table" style="background-color:white">
+      <thead class="bg-success">
+        <tr>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>기간</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% @public.each_with_index do |post,i| %>
+            <% if i < 5 %>
+            <tr>
+              <td><%= post.title %></td>
+              <td><%= post.writer %></td>
+              <td><%= post.period %></td>
+            </tr>
+          <% else %>
+            <tr style="display:none;">
+              <td><%= post.title %></td>
+              <td><%= post.writer %></td>
+              <td><%= post.period %></td>
+            </tr>
+          <% end %>
+        <% end %>
+        </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <table class="table" style="background-color:white">
+      <thead class="bg-success">
+        <tr>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>기간</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @public.each_with_index do |post,i| %>
+          <% if i < 5 %>
+            <tr>
+              <td><%= post.title %></td>
+              <td><%= post.writer %></td>
+              <td><%= post.period %></td>
+            </tr>
+          <% else %>
+            <tr style="display:none;">
+            <td><%= post.title %></td>
+            <td><%= post.writer %></td>
+            <td><%= post.period %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

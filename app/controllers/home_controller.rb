@@ -1,6 +1,10 @@
 require 'JBNU_Parser'
 
 class HomeController < ApplicationController
+
+  def main
+  end
+
   def index
 
     parser = JBNU_Parser.new
@@ -10,10 +14,13 @@ class HomeController < ApplicationController
       query = ""
     end
 
-    @public = parser.start(0,query)
-    @notice = parser.start(1,query)
-    @recrult = parser.start(2,query)
-    @seminar = parser.start(3,query)
+    @public = parser.getPosts(0,query)
+    #  @notice = parser.getPosts(1,query)
+     @recrult = parser.getPosts(4,query)
+    # @seminar = parser.start(4,query)
+    @notice = []
+    # @recrult = []
+
   end
 
   def search
