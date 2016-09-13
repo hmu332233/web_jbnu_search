@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 
   def main
     #test
+    #test2
   end
 
   def index
