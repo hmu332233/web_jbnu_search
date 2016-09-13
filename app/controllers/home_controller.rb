@@ -3,6 +3,7 @@ require 'JBNU_Parser'
 class HomeController < ApplicationController
 
   def main
+    #test
   end
 
   def index
