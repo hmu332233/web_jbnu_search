@@ -18,7 +18,24 @@
 <br/>
 
 <div class="row">
+  <div class="col-md-6 offset-md-3">
+    <button type="button" class="btn btn-outline-success" style="border-color:white; color:white">전체</button>
+    <button type="button" class="btn btn-outline-info">학사공지</button>
+    <button type="button" class="btn btn-outline-warning">일반공지</button>
+    <button type="button" class="btn btn-outline-danger">Danger</button>
+    <button type="button" class="btn btn-outline-warning">Warning</button>
+    <button type="button" onclick="location.href='#live'" class="btn btn-outline-danger page-scroll">Danger</button>
+    <a class="page-scroll" href="#live">Services</a>
+  </div>
+</div>
+
+
+
+<br/>
+
+<div class="row">
   <div class="col-md-6">
+    <h4 style="color:white">학사공지</h4>
     <table class="table" style="background-color:white">
       <colgroup>
         <col width="70%">
@@ -36,7 +53,7 @@
           <% @public.each_with_index do |post,i| %>
             <% if i < 5 %>
             <tr>
-              <td><%= post.title %></td>
+              <td ><a href="http://www.chonbuk.ac.kr/<%= post.content %>" style="color:black"><%= post.title %></a></td>
               <td><%= post.writer %></td>
               <td><%= post.period %></td>
             </tr>
@@ -52,13 +69,14 @@
     </table>
   </div>
   <div class="col-md-6">
+    <h4 style="color:white">일반공지</h4>
     <table class="table" style="background-color:white">
       <colgroup>
         <col width="70%">
         <col width="20%">
         <col width="10%">
       </colgroup>
-      <thead class="bg-success">
+      <thead class="bg-warning">
         <tr>
           <th>제목</th>
           <th>작성자</th>
@@ -66,7 +84,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @recrult.each_with_index do |post,i| %>
+        <% @notice.each_with_index do |post,i| %>
           <% if i < 5 %>
             <tr>
               <td><%= post.title %></td>
@@ -89,13 +107,14 @@
 
 <div class="row">
   <div class="col-md-6">
+    <h4 style="color:white">교내채용</h4>
     <table class="table" style="background-color:white">
       <colgroup>
         <col width="70%">
         <col width="20%">
         <col width="10%">
       </colgroup>
-      <thead class="bg-success">
+      <thead class="bg-warning">
         <tr>
           <th>제목</th>
           <th>작성자</th>
@@ -103,7 +122,7 @@
         </tr>
       </thead>
       <tbody>
-          <% @public.each_with_index do |post,i| %>
+          <% @recrult.each_with_index do |post,i| %>
             <% if i < 5 %>
             <tr>
               <td><%= post.title %></td>
@@ -122,13 +141,14 @@
     </table>
   </div>
   <div class="col-md-6">
+    <h4 style="color:white">특강/세미나</h4>
     <table class="table" style="background-color:white">
       <colgroup>
         <col width="70%">
         <col width="20%">
         <col width="10%">
       </colgroup>
-      <thead class="bg-success">
+      <thead class="bg-warning">
         <tr>
           <th>제목</th>
           <th>작성자</th>
@@ -136,7 +156,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @public.each_with_index do |post,i| %>
+        <% @seminar.each_with_index do |post,i| %>
           <% if i < 5 %>
             <tr>
               <td><%= post.title %></td>
@@ -154,4 +174,151 @@
       </tbody>
     </table>
   </div>
+</div>
+
+<div class="row">
+  <h2 style="color:white">건지광장</h2>
+</div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h4 style="color:white">스터디</h4>
+      <table class="table" style="background-color:white">
+        <colgroup>
+          <col width="70%">
+          <col width="20%">
+          <col width="10%">
+        </colgroup>
+        <thead class="bg-warning">
+          <tr>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>기간</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @study.each_with_index do |post,i| %>
+              <% if i < 5 %>
+              <tr>
+                <td><%= post.title %></td>
+                <td><%= post.writer %></td>
+                <td><%= post.period %></td>
+              </tr>
+            <% else %>
+              <tr style="display:none;">
+                <td><%= post.title %></td>
+                <td><%= post.writer %></td>
+                <td><%= post.period %></td>
+              </tr>
+            <% end %>
+          <% end %>
+          </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <h4 style="color:white">알바</h4>
+      <table class="table" style="background-color:white">
+        <colgroup>
+          <col width="70%">
+          <col width="20%">
+          <col width="10%">
+        </colgroup>
+        <thead class="bg-warning">
+          <tr>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>기간</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @alba.each_with_index do |post,i| %>
+            <% if i < 5 %>
+              <tr>
+                <td><%= post.title %></td>
+                <td><%= post.writer %></td>
+                <td><%= post.period %></td>
+              </tr>
+            <% else %>
+              <tr style="display:none;">
+              <td><%= post.title %></td>
+              <td><%= post.writer %></td>
+              <td><%= post.period %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <h4 style="color:white">판매/구매</h4>
+        <table class="table" style="background-color:white">
+          <colgroup>
+            <col width="70%">
+            <col width="20%">
+            <col width="10%">
+          </colgroup>
+          <thead class="bg-warning">
+            <tr>
+              <th>제목</th>
+              <th>작성자</th>
+              <th>기간</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% @market.each_with_index do |post,i| %>
+                <% if i < 5 %>
+                <tr>
+                  <td><%= post.title %></td>
+                  <td><%= post.writer %></td>
+                  <td><%= post.period %></td>
+                </tr>
+              <% else %>
+                <tr style="display:none;">
+                  <td><%= post.title %></td>
+                  <td><%= post.writer %></td>
+                  <td><%= post.period %></td>
+                </tr>
+              <% end %>
+            <% end %>
+            </tbody>
+        </table>
+      </div>
+      <div class="col-md-6" id="live">
+        <h4 style="color:white">자취/하숙/원룸</h4>
+        <table class="table" style="background-color:white">
+          <colgroup>
+            <col width="70%">
+            <col width="20%">
+            <col width="10%">
+          </colgroup>
+          <thead class="bg-warning">
+            <tr>
+              <th>제목</th>
+              <th>작성자</th>
+              <th>기간</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @live.each_with_index do |post,i| %>
+              <% if i < 5 %>
+                <tr>
+                  <td><%= post.title %></td>
+                  <td><%= post.writer %></td>
+                  <td><%= post.period %></td>
+                </tr>
+              <% else %>
+                <tr style="display:none;">
+                <td><%= post.title %></td>
+                <td><%= post.writer %></td>
+                <td><%= post.period %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
 </div>
