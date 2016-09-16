@@ -11,8 +11,11 @@ class JBNU_Parser
 
   def requestHTML(id,word)
 
-    uri = URI(URI.encode("http://www.jbnu.ac.kr/bb/board.php?boardID="+boardId(id)+"&cTitle=Y&query="+word))
-
+    if word == ""
+      uri = URI(URI.encode("http://www.chonbuk.ac.kr/bb/board.php?boardID="+boardId(id)))
+    else
+      uri = URI(URI.encode("http://www.jbnu.ac.kr/bb/board.php?boardID="+boardId(id)+"&cTitle=Y&query="+word))
+    end
     req = Net::HTTP::Get.new(uri)
 
     res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => uri.scheme == 'https') { |http| http.request(req) }
@@ -74,7 +77,7 @@ class JBNU_Parser
           number = post_data.css("td")[0].inner_text
           title = post_data.css("th")[0].inner_text
           writer = post_data.css("td")[2].inner_text
-          period = post_data.css("td")[3].inner_text
+          period = post_data.css("td")[3].inner_text.to_s.split(" ~")[0]
 
           content_link = post_data.css("th//a")[0].attr('href')
 
