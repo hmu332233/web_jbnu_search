@@ -5,7 +5,7 @@
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">-->
     <nav class="navbar navbar-default navbar-custom">
         <div class="container">
-            <a class="navbar-brand">JBNU Searcher</a>
+            <a class="navbar-brand" href="/home/main">JBNU Searcher</a>
 
 <!--
             <div class="navbar-collapse">
@@ -42,40 +42,318 @@
               <a href="?tab=<%= s %>&query=<%=@query%>"><%= s %></a>
             </li>
           <% end %>
-        </ul>
-        <ul class="nav nav-pills">
+
           <% @post_list.each do |s| %>
             <li class="<% if s == @tab %>active<% end %>">
               <a href="?tab=<%= s %>&query=<%=@query%>"><%= s %></a>
             </li>
           <% end %>
         </ul>
+        <!--
+        <ul class="nav nav-pills">
+
+        </ul>
+        -->
+        <br/><br/>
+
+        <% if @all %>
+
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="board-list">
+              <h4>학사공지</h4>
+              <% @public.each_with_index do |board,i| %>
+              <% unless i < 5 ; break ; end %>
+              <li class="board-item">
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="row">
+                      <h4><%=board.number%></h4>
+                    </div>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="row">
+                      <h4><a href="http://www.chonbuk.ac.kr<%= board.content %>&pageKey=34" target="_blank"><%=board.title%></a></h4>
+                    </div>
+                    <div class="row">
+                      <div class="text-right">
+                          <h5><%=board.writer%>  <%=board.period%></h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul class="board-list">
+              <h4>일반공지</h4>
+              <% @notice.each_with_index do |board,i| %>
+              <% unless i < 5 ; break ; end %>
+              <li class="board-item">
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="row">
+                      <h4><%=board.number%></h4>
+                    </div>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="row">
+                      <h4><a href="http://www.chonbuk.ac.kr<%= board.content %>&pageKey=34" target="_blank"><%=board.title%></a></h4>
+                    </div>
+                    <div class="row">
+                      <div class="text-right">
+                          <h5><%=board.writer%>  <%=board.period%></h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
 
         <br/><br/>
 
-        <ul class="board-list">
-          <% @boards.each do |board| %>
-          <li class="board-item">
-            <div class="row">
-              <div class="col-md-2">
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="board-list">
+              <h4>교내채용</h4>
+              <% @recrult.each_with_index do |board,i| %>
+              <% unless i < 5 ; break ; end %>
+              <li class="board-item">
                 <div class="row">
-                  <h4><%=board.number%></h4>
+                  <div class="col-md-2">
+                    <div class="row">
+                      <h4><%=board.number%></h4>
+                    </div>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="row">
+                      <h4><a href="http://www.chonbuk.ac.kr<%= board.content %>&pageKey=34" target="_blank"><%=board.title%></a></h4>
+                    </div>
+                    <div class="row">
+                      <div class="text-right">
+                          <h5><%=board.writer%>  <%=board.period%></h5>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-10">
+              </li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul class="board-list">
+              <h4>특강/세미나</h4>
+              <% @seminar.each_with_index do |board,i| %>
+              <% unless i < 5 ; break ; end %>
+              <li class="board-item">
                 <div class="row">
-                  <h4><a href="http://www.chonbuk.ac.kr<%= board.content %>&pageKey=34" target="_blank"><%=board.title%></a></h4>
+                  <div class="col-md-2">
+                    <div class="row">
+                      <h4><%=board.number%></h4>
+                    </div>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="row">
+                      <h4><a href="http://www.chonbuk.ac.kr<%= board.content %>&pageKey=34" target="_blank"><%=board.title%></a></h4>
+                    </div>
+                    <div class="row">
+                      <div class="text-right">
+                          <h5><%=board.writer%>  <%=board.period%></h5>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+        <br/><br/>
+
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="board-list">
+              <h4>공모/스터디</h4>
+              <% @study.each_with_index do |board,i| %>
+              <% unless i < 5 ; break ; end %>
+              <li class="board-item">
                 <div class="row">
-                  <div class="text-right">
-                      <h5><%=board.writer%>  <%=board.period%></h5>
+                  <div class="col-md-2">
+                    <div class="row">
+                      <h4><%=board.number%></h4>
+                    </div>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="row">
+                      <h4><a href="http://www.chonbuk.ac.kr<%= board.content %>&pageKey=34" target="_blank"><%=board.title%></a></h4>
+                    </div>
+                    <div class="row">
+                      <div class="text-right">
+                          <h5><%=board.writer%>  <%=board.period%></h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul class="board-list">
+              <h4>아르바이트</h4>
+              <% @alba.each_with_index do |board,i| %>
+              <% unless i < 5 ; break ; end %>
+              <li class="board-item">
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="row">
+                      <h4><%=board.number%></h4>
+                    </div>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="row">
+                      <h4><a href="http://www.chonbuk.ac.kr<%= board.content %>&pageKey=34" target="_blank"><%=board.title%></a></h4>
+                    </div>
+                    <div class="row">
+                      <div class="text-right">
+                          <h5><%=board.writer%>  <%=board.period%></h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+        <br/><br/>
+
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="board-list">
+              <h4>판매/구매/광고</h4>
+              <% @market.each_with_index do |board,i| %>
+              <% unless i < 5 ; break ; end %>
+              <li class="board-item">
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="row">
+                      <h4><%=board.number%></h4>
+                    </div>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="row">
+                      <h4><a href="http://www.chonbuk.ac.kr<%= board.content %>&pageKey=34" target="_blank"><%=board.title%></a></h4>
+                    </div>
+                    <div class="row">
+                      <div class="text-right">
+                          <h5><%=board.writer%>  <%=board.period%></h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul class="board-list">
+              <h4>자취/하숙/원룸</h4>
+              <% @live.each_with_index do |board,i| %>
+              <% unless i < 5 ; break ; end %>
+              <li class="board-item">
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="row">
+                      <h4><%=board.number%></h4>
+                    </div>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="row">
+                      <h4><a href="http://www.chonbuk.ac.kr<%= board.content %>&pageKey=34" target="_blank"><%=board.title%></a></h4>
+                    </div>
+                    <div class="row">
+                      <div class="text-right">
+                          <h5><%=board.writer%>  <%=board.period%></h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+        <br/><br/>
+
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="board-list">
+              <h4>분실/습득</h4>
+              <% @found.each_with_index do |board,i| %>
+              <% unless i < 5 ; break ; end %>
+              <li class="board-item">
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="row">
+                      <h4><%=board.number%></h4>
+                    </div>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="row">
+                      <h4><a href="http://www.chonbuk.ac.kr<%= board.content %>&pageKey=34" target="_blank"><%=board.title%></a></h4>
+                    </div>
+                    <div class="row">
+                      <div class="text-right">
+                          <h5><%=board.writer%>  <%=board.period%></h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+
+
+
+        <% else %>
+          <ul class="board-list">
+            <% @boards.each do |board| %>
+            <li class="board-item">
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="row">
+                    <h4><%=board.number%></h4>
+                  </div>
+                </div>
+                <div class="col-md-10">
+                  <div class="row">
+                    <h4><a href="http://www.chonbuk.ac.kr<%= board.content %>&pageKey=34" target="_blank"><%=board.title%></a></h4>
+                  </div>
+                  <div class="row">
+                    <div class="text-right">
+                        <h5><%=board.writer%>  <%=board.period%></h5>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </li>
-          <% end %>
-        </ul>
+            </li>
+            <% end %>
+          </ul>
+        <% end %>
+
+
 
       </div>
 
@@ -83,15 +361,15 @@
 
 
 
-    <!-- Footer -->
+
     <footer class="text-center">
+      <!--
         <div class="footer-above">
             <div class="container">
                 <div class="row">
                     <div class="footer-col col-md-4">
-                        <h3>Location</h3>
-                        <p>3481 Melrose Place
-                            <br>Beverly Hills, CA 90210</p>
+                        <h3>프로토타입</h3>
+
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>Around the Web</h3>
@@ -114,22 +392,24 @@
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>About Freelancer</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                        <h3>프로토타입</h3>
+                        <p>1231234</p>
                     </div>
                 </div>
             </div>
         </div>
+      -->
         <div class="footer-below">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Your Website 2016
+                        Copyright &copy; hmu 2016
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+
 
 
 

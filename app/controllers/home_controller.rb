@@ -15,15 +15,43 @@ class HomeController < ApplicationController
       @query = ""
     end
 
+    if @tab == nil
+      @tab = "학사공지"
+    end
+
+    @all = false
+
     case @tab # a_variable is the variable we want to compare
     when "전체"    #compare to 1
-      @boards = parser.getPosts(0,@query)
-      print "실행"
+      @public = parser.getPosts(0,@query)
+      @notice = parser.getPosts(1,@query)
+      @recrult = parser.getPosts(2,@query)
+      @seminar = parser.getPosts(3,@query)
+      @study = parser.getPosts(4,@query)
+      @alba = parser.getPosts(5,@query)
+      @market = parser.getPosts(6,@query)
+      @live = parser.getPosts(7,@query)
+      @found = parser.getPosts(8,@query)
+      #
+      # @public = @study
+      # @notice = @study
+      # @recrult = @study
+      # @seminar = @study
+      #
+      # @alba = @study
+      # @market = @study
+      # @live = @study
+      # @found = @study
+      #
+      # @board_list = [@public,@notice,@recrult,@seminar,@study,@alba,@market,@live,@found]
+
+      @all = true
     when "학사공지"    #compare to 2
       @boards = parser.getPosts(0,@query)
       print "실행"
     when "취업공지"    #compare to 2
-      @boards = parser.getPosts(0,@query)
+      @boards = []
+      @boards << Post.new("","준비중입니다","","","")
       print "실행"
     when "일반공지"    #compare to 2
       @boards = parser.getPosts(1,@query)
@@ -67,7 +95,7 @@ class HomeController < ApplicationController
     if query == nil
       query = ""
     end
- ["K_PUBLIC","K_NOTICE","K_RECRUIT","K_SEMINAR","K_STUDY","K_ALBA","K_MARKET","K_LIVE","K_FOUND"]
+
     # @public = parser.getPosts(0,query)
     # @notice = parser.getPosts(1,query)
     # @recrult = parser.getPosts(2,query)
@@ -95,7 +123,33 @@ class HomeController < ApplicationController
 
   def search
 
-    @query = params[:query]
+    parser = JBNU_Parser.new
+
+    query = params[:query]
+    if query == nil
+      query = ""
+    end
+
+    # @public = parser.getPosts(0,query)
+    # @notice = parser.getPosts(1,query)
+    # @recrult = parser.getPosts(2,query)
+    # @seminar = parser.getPosts(3,query)
+    @study = parser.getPosts(4,query)
+    # @alba = parser.getPosts(5,query)
+    # @market = parser.getPosts(6,query)
+    # @live = parser.getPosts(7,query)
+    # @found = parser.getPosts(8,query)
+    #
+    @public = @study
+    @notice = @study
+    @recrult = @study
+    @seminar = @study
+
+    @alba = @study
+    @market = @study
+    @live = @study
+    @found = @study
+
 
   end
 
